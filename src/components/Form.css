@@ -1,0 +1,34 @@
+.formulario{
+    margin: auto;
+    text-align: center;
+}
+
+.formulario button{
+    border: none;
+    border-radius: 0 10px 10px 0;
+    background-color: #BF7E45;
+    padding: 1rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: 100ms;
+}
+
+.formulario button:hover{
+    background-color: #283540;
+    color: white;
+}
+
+.formulario input{
+    border: none;
+    border-radius: 10px 0 0 10px;
+    background-color: rgba(40, 53, 64, 0.489);
+    color: white;
+    padding: 1rem;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    transition: 100ms;
+}
+
+::placeholder{
+    color: rgba(255, 255, 255, 0.345);
+}

@@ -1,0 +1,43 @@
+.App{
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    background-image: url('https://source.unsplash.com/random/1600x900/?landscape');
+}
+
+h1{
+    color: #283540;
+}
+
+span{
+    color: #283540;
+}
+
+.box{
+    background-color: rgba(251, 254, 249, 0.85);
+    border-radius: 25px;
+    padding: 2rem;
+    width: 800px;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+}
+
+.box-title{
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.box-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.box-data span{
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
