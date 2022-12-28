@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './app.css'
 import Form from './components/Form';
 
@@ -8,12 +8,12 @@ function App() {
   const key = 'e7fc12b6e44c6ad177cf99ca2fbb4c23'
   const [cidade, setCidade] = useState('catalao')
   const [dados, setDados] = useState({
-    name: '',
+    name: 'Clima Agora',
     main: {
-      temp: '',
-      temp_max: '',
-      temp_min: '',
-      humidity: ''
+      temp: 0,
+      temp_max: 0,
+      temp_min: 0,
+      humidity: '0'
     },
     weather: [{
       description: '',
@@ -21,11 +21,16 @@ function App() {
     }]
   })
 
+  const temp = {
+    atual: dados.main.temp != 0 ? dados.main.temp - 273.13 : 0,
+    min: dados.main.temp_min != 0 ? dados.main.temp_min - 273.13 : 0,
+    max: dados.main.temp_max != 0 ? dados.main.temp_max - 273.13 : 0,
+  }
+
   const buscarDados = () => {
     axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${key}`)
       .then((res) => {
-        setDados({ ...res.data })
-        console.log(dados);
+        setDados({ ...res.data });
       });
   }
 
@@ -44,15 +49,16 @@ function App() {
             <h1>
               {dados.name}
             </h1>
-            <span> {dados.weather[0].description} </span>
             <img src={`http://openweathermap.org/img/wn/${dados.weather[0].icon}@2x.png`} />
+            <span> {dados.weather[0].description} </span>
+            <span>temperatura atual: {temp.atual.toFixed(2)}°C</span>
+
           </div>
 
           <div className='box-data'>
             <span>umidade: {dados.main.humidity}% </span>
-            <span>temperatura atual: {dados.main.temp}</span>
-            <span>temperatura Max: {dados.main.temp_max}</span>
-            <span>temperatura Min: {dados.main.temp_min}</span>
+            <span>temperatura Max: {temp.max.toFixed(2)}°C</span>
+            <span>temperatura Min: {temp.min.toFixed(2)}°C</span>
           </div>
 
         </div>
