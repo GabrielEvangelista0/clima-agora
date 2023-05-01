@@ -1,13 +1,15 @@
 .App{
     min-height: 100vh;
-    width: 100vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 body{
     background-image: url('https://source.unsplash.com/random/1600x900/?landscape');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1{
@@ -20,6 +22,7 @@ span{
 }
 
 .box{
+    margin-top: 2rem;
     background-color: rgba(251, 254, 249, 0.85);
     border-radius: 25px;
     padding: 2rem;
